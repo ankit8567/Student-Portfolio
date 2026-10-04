@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <!-- Background studio lighting gradient -->
+    <radialGradient id="studioGlow" cx="50%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#1e3a8a" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+
+    <!-- Suit fabric gradient -->
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Lapel highlight -->
+    <linearGradient id="lapelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <!-- Shirt gradient -->
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+
+    <!-- Skin tone gradients -->
+    <linearGradient id="skinBase" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d49b70"/>
+      <stop offset="100%" stop-color="#be8257"/>
+    </linearGradient>
+
+    <linearGradient id="skinShadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a66a41"/>
+      <stop offset="100%" stop-color="#8c532e"/>
+    </linearGradient>
+
+    <!-- Hair gradient -->
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#262626"/>
+      <stop offset="70%" stop-color="#171717"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+
+    <!-- Subtle vignette shadow -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="70%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.5)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Studio Backdrop -->
+  <rect width="600" height="750" fill="url(#studioGlow)"/>
+
+  <!-- Subtle studio lighting bokeh circles -->
+  <circle cx="160" cy="180" r="140" fill="#60a5fa" opacity="0.08"/>
+  <circle cx="460" cy="220" r="120" fill="#38bdf8" opacity="0.06"/>
+
+  <!-- Shoulders & Suit Jacket Body -->
+  <!-- Left Shoulder / Arm -->
+  <path d="M 0 750 L 0 540 Q 60 480 180 470 L 220 540 L 140 750 Z" fill="url(#suitGrad)"/>
+  <!-- Right Shoulder / Arm -->
+  <path d="M 600 750 L 600 540 Q 540 480 420 470 L 380 540 L 460 750 Z" fill="url(#suitGrad)"/>
+  
+  <!-- Suit Back & Main Torso -->
+  <path d="M 120 750 L 170 470 Q 300 485 430 470 L 480 750 Z" fill="url(#suitGrad)"/>
+
+  <!-- Crisp White Shirt (Center Chest) -->
+  <path d="M 230 460 L 300 600 L 370 460 Q 340 500 300 515 Q 260 500 230 460 Z" fill="url(#shirtGrad)"/>
+  <path d="M 285 490 L 300 680 L 315 490 Z" fill="#e2e8f0"/>
+  <!-- Shirt collar left -->
+  <polygon points="230,440 280,510 260,520 220,460" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <!-- Shirt collar right -->
+  <polygon points="370,440 320,510 340,520 380,460" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- Suit Lapels -->
+  <!-- Left Lapel -->
+  <polygon points="175,470 240,630 290,660 225,540 195,490" fill="url(#lapelGrad)" stroke="#090d16" stroke-width="1.5"/>
+  <!-- Right Lapel -->
+  <polygon points="425,470 360,630 310,660 375,540 405,490" fill="url(#lapelGrad)" stroke="#090d16" stroke-width="1.5"/>
+
+  <!-- Neck -->
+  <path d="M 260 380 L 260 480 Q 300 510 340 480 L 340 380 Z" fill="url(#skinBase)"/>
+  <path d="M 260 400 Q 300 440 340 400 L 340 470 Q 300 495 260 470 Z" fill="url(#skinShadow)" opacity="0.35"/>
+  <!-- Adam's apple subtle highlight -->
+  <path d="M 295 440 Q 300 448 305 440" stroke="#a66a41" stroke-width="2" fill="none" opacity="0.6"/>
+
+  <!-- Head & Face Contour -->
+  <g id="head">
+    <!-- Ears -->
+    <!-- Left Ear -->
+    <path d="M 205 305 C 190 305 185 330 190 355 C 195 375 210 380 215 365 Z" fill="url(#skinBase)"/>
+    <path d="M 197 325 C 193 335 195 350 203 355" stroke="#a66a41" stroke-width="2" fill="none"/>
+    <!-- Right Ear -->
+    <path d="M 395 305 C 410 305 415 330 410 355 C 405 375 390 380 385 365 Z" fill="url(#skinBase)"/>
+    <path d="M 403 325 C 407 335 405 350 397 355" stroke="#a66a41" stroke-width="2" fill="none"/>
+
+    <!-- Jaw & Face Base -->
+    <path d="M 210 270 Q 200 370 240 410 Q 300 445 360 410 Q 400 370 390 270 Q 300 230 210 270 Z" fill="url(#skinBase)"/>
+    
+    <!-- Cheeks & Chin Soft Shadows -->
+    <path d="M 230 380 Q 300 440 370 380 Q 300 415 230 380 Z" fill="url(#skinShadow)" opacity="0.3"/>
+
+    <!-- Eyes -->
+    <!-- Left Eye -->
+    <g id="leftEye">
+      <ellipse cx="262" cy="305" rx="20" ry="11" fill="#ffffff"/>
+      <!-- Iris -->
+      <circle cx="263" cy="305" r="9" fill="#3d2314"/>
+      <!-- Pupil -->
+      <circle cx="263" cy="305" r="4.5" fill="#0a0a0a"/>
+      <!-- Catchlight reflection -->
+      <circle cx="261" cy="303" r="2.5" fill="#ffffff"/>
+      <!-- Upper Eyelid -->
+      <path d="M 240 305 Q 262 292 284 305" stroke="#1f140e" stroke-width="2.5" fill="none"/>
+      <!-- Lower eyelid crease -->
+      <path d="M 244 310 Q 262 318 280 310" stroke="#a66a41" stroke-width="1.2" fill="none" opacity="0.7"/>
+    </g>
+
+    <!-- Right Eye -->
+    <g id="rightEye">
+      <ellipse cx="338" cy="305" rx="20" ry="11" fill="#ffffff"/>
+      <!-- Iris -->
+      <circle cx="337" cy="305" r="9" fill="#3d2314"/>
+      <!-- Pupil -->
+      <circle cx="337" cy="305" r="4.5" fill="#0a0a0a"/>
+      <!-- Catchlight reflection -->
+      <circle cx="335" cy="303" r="2.5" fill="#ffffff"/>
+      <!-- Upper Eyelid -->
+      <path d="M 316 305 Q 338 292 360 305" stroke="#1f140e" stroke-width="2.5" fill="none"/>
+      <!-- Lower eyelid crease -->
+      <path d="M 320 310 Q 338 318 356 310" stroke="#a66a41" stroke-width="1.2" fill="none" opacity="0.7"/>
+    </g>
+
+    <!-- Eyebrows -->
+    <!-- Left Eyebrow (bold, masculine, well-groomed) -->
+    <path d="M 235 285 Q 262 268 288 280 Q 262 274 235 285 Z" fill="#1c1917"/>
+    <!-- Right Eyebrow -->
+    <path d="M 365 285 Q 338 268 312 280 Q 338 274 365 285 Z" fill="#1c1917"/>
+
+    <!-- Nose -->
+    <path d="M 300 280 L 295 345 Q 284 355 292 360 Q 300 363 308 360 Q 316 355 305 345 Z" fill="url(#skinShadow)" opacity="0.4"/>
+    <ellipse cx="288" cy="358" rx="4.5" ry="3" fill="#6c3c1e" opacity="0.8"/>
+    <ellipse cx="312" cy="358" rx="4.5" ry="3" fill="#6c3c1e" opacity="0.8"/>
+    <!-- Nose bridge highlight -->
+    <path d="M 299 290 L 299 350" stroke="#f6c29e" stroke-width="2" opacity="0.6"/>
+
+    <!-- Trim Mustache (Distinctive Feature of Ankit) -->
+    <path d="M 264 382 Q 284 374 300 380 Q 316 374 336 382 Q 324 394 300 388 Q 276 394 264 382 Z" fill="#171717"/>
+    <path d="M 270 382 Q 300 376 330 382" stroke="#262626" stroke-width="2" fill="none"/>
+
+    <!-- Lips -->
+    <!-- Upper lip line -->
+    <path d="M 274 396 Q 300 393 326 396" stroke="#9f563b" stroke-width="2" fill="none"/>
+    <!-- Lower Lip -->
+    <path d="M 276 397 Q 300 415 324 397 Z" fill="#b8684d" opacity="0.85"/>
+    <path d="M 284 402 Q 300 409 316 402" stroke="#d5866a" stroke-width="1.5" fill="none" opacity="0.7"/>
+
+    <!-- Hair (Dark, neat, stylish side crop) -->
+    <path d="M 205 285 C 195 240 215 170 270 145 C 320 125 385 140 405 190 C 415 220 410 260 395 285 C 390 270 395 240 375 220 C 350 195 300 200 245 220 C 220 230 210 260 205 285 Z" fill="url(#hairGrad)"/>
+    
+    <!-- Hair Texture Strands -->
+    <path d="M 240 170 Q 280 150 330 155" stroke="#404040" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M 260 185 Q 310 165 360 175" stroke="#404040" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M 280 195 Q 330 180 375 195" stroke="#525252" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <!-- Front hairline bangs / texture -->
+    <path d="M 225 235 Q 245 210 270 220 Q 295 205 320 215 Q 350 205 380 225" stroke="#171717" stroke-width="5" fill="none"/>
+  </g>
+
+  <!-- Studio Vignette & Soft Border -->
+  <rect width="600" height="750" fill="url(#vignette)"/>
+  <rect x="0" y="0" width="600" height="750" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+</svg>
