@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { portfolioData, Project, Certificate } from './data/portfolioData';
+import { Project, Certificate } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './sections/HeroSection';
 import { AboutSection } from './sections/AboutSection';
@@ -14,35 +14,11 @@ import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
 import { ProjectModal } from './components/ProjectModal';
 import { CertificateModal } from './components/CertificateModal';
-import { PhotoUploadModal } from './components/PhotoUploadModal';
 
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
-  const [photoModalOpen, setPhotoModalOpen] = useState(false);
-  const [profilePhoto, setProfilePhoto] = useState<string | null>(() => {
-    try {
-      const saved = localStorage.getItem('ankit_portfolio_photo');
-      if (saved) return saved;
-    } catch (e) {
-      // ignore
-    }
-    return portfolioData.personal.customPhotoUrl || '/profile.jpg';
-  });
-
-  const handleUpdatePhoto = (newPhoto: string | null) => {
-    setProfilePhoto(newPhoto);
-    try {
-      if (newPhoto) {
-        localStorage.setItem('ankit_portfolio_photo', newPhoto);
-      } else {
-        localStorage.removeItem('ankit_portfolio_photo');
-      }
-    } catch (e) {
-      // ignore
-    }
-  };
 
   // Close modals on Escape key
   useEffect(() => {
@@ -51,7 +27,6 @@ export default function App() {
         setResumeOpen(false);
         setSelectedProject(null);
         setSelectedCertificate(null);
-        setPhotoModalOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -66,17 +41,10 @@ export default function App() {
       {/* Main Content Sections */}
       <main>
         {/* 1. Hero Section */}
-        <HeroSection
-          onResumeClick={() => setResumeOpen(true)}
-          onOpenPhotoModal={() => setPhotoModalOpen(true)}
-          profilePhoto={profilePhoto}
-        />
+        <HeroSection onResumeClick={() => setResumeOpen(true)} />
 
         {/* 2. About Me */}
-        <AboutSection
-          onOpenPhotoModal={() => setPhotoModalOpen(true)}
-          profilePhoto={profilePhoto}
-        />
+        <AboutSection />
 
         {/* 3. Tech Stack / Skills */}
         <SkillsSection />
@@ -118,13 +86,6 @@ export default function App() {
         certificate={selectedCertificate}
         isOpen={Boolean(selectedCertificate)}
         onClose={() => setSelectedCertificate(null)}
-      />
-
-      <PhotoUploadModal
-        isOpen={photoModalOpen}
-        onClose={() => setPhotoModalOpen(false)}
-        currentPhoto={profilePhoto}
-        onUpdatePhoto={handleUpdatePhoto}
       />
     </div>
   );

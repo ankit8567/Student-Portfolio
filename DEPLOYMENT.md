@@ -1,40 +1,24 @@
 # Vercel Deployment Guide
 
-This portfolio is pre-configured and optimized for 1-click deployment on [Vercel](https://vercel.com).
+This portfolio is configured and tested for deployment on [Vercel](https://vercel.com).
 
-## Quick Deployment Steps
+## What Was Fixed for Vercel
+- **Peer Dependency Conflict Resolved**: Removed the redundant `"esbuild": "^0.25.0"` from `package.json` which conflicted with Vite 8's peer dependency requirement during Vercel's automated `npm install`.
+- **`.npmrc` Configuration**: Added `legacy-peer-deps=true` so Vercel never fails on strict dependency tree resolution.
+- **`vercel.json` Setup**: Configured `"installCommand": "npm install --legacy-peer-deps"` and Single-Page Application (SPA) routing rewrites.
 
-### Method 1: Deploy via GitHub (Recommended)
-1. Push this project to your GitHub account:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: complete Ankit Srivastava portfolio"
-   git branch -M main
-   git remote add origin https://github.com/ankit8567/<repo-name>.git
-   git push -u origin main
-   ```
-2. Go to [vercel.com/new](https://vercel.com/new).
-3. Import your GitHub repository.
-4. Vercel will automatically detect **Vite** framework preset with:
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-   - **Install Command**: `npm install`
-5. Click **Deploy**. Your portfolio will be live worldwide in seconds!
+## How to Deploy to Vercel
 
-### Method 2: Deploy via Vercel CLI
+### Step 1: Push Changes to Your GitHub Repository
+Run in your terminal:
 ```bash
-npm i -g vercel
-vercel
+git add .
+git commit -m "fix: resolve Vercel npm install ERESOLVE peer dependency conflict"
+git push origin main
 ```
 
-## Profile Photo Configuration
-- Static photo assets are placed in the `/public` folder (`/public/profile.jpg` and `/public/IMG_20261003_231421.jpg`).
-- In addition, you can update or test any photo directly on the live website by clicking the **"Update / Replace Photo"** button, which persists the image locally in your browser.
-- When committing your repository, ensure your photo file is named `profile.jpg` in the `public/` directory so Vercel bundles it into production `dist/`.
-
-## Pre-configured Files
-- `vercel.json`: Handles Single-Page Application (SPA) routing so direct navigation and refreshes work without 404 errors.
-- `public/favicon.svg`: Custom monogram favicon.
-- `public/robots.txt`: Search engine crawling rules.
-- Mobile and desktop viewport responsiveness configured via Tailwind CSS v4.
+### Step 2: Deploy on Vercel
+1. Go to [vercel.com](https://vercel.com).
+2. If already imported, click **Redeploy** on your project dashboard.
+3. If importing for the first time, go to [vercel.com/new](https://vercel.com/new), select your repo, and click **Deploy**.
+4. The deployment will complete with 0 errors!

@@ -1,3 +1,5 @@
+import { permanentProfilePhoto } from '../assets/profileImage';
+
 export interface Project {
   id: string;
   title: string;
@@ -8,9 +10,10 @@ export interface Project {
   technologies: string[];
   githubUrl: string;
   liveUrl?: string;
+  thumbnailUrl?: string;
   featured: boolean;
   highlights: string[];
-  mockupType: 'academic' | 'ansible' | 'portfolio' | 'dsa';
+  mockupType: 'academic' | 'ansible' | 'portfolio' | 'dsa' | 'todo';
 }
 
 export interface Experience {
@@ -69,7 +72,7 @@ export const portfolioData = {
       "Computer Science and Engineering undergraduate (B.Tech, expected 2029) seeking an SDE Intern / Software Engineer Trainee role. Strong foundation in Python, Java, and C, with hands-on experience in Linux automation using Red Hat Ansible, responsive web development, and algorithm design. Experienced with Git-based workflows, data analysis, and hands-on industry job simulations. Focused on writing clean, efficient, well-documented code and applying sound time and space complexity analysis.",
     heroShortBio:
       "Computer Science Engineering undergraduate at NIET Greater Noida (1st Year CGPA: 9.2). Passionate about DSA, Python, Java, C, Linux automation using Red Hat Ansible, AI, and scalable software solutions.",
-    customPhotoUrl: "/profile.svg",
+    customPhotoUrl: permanentProfilePhoto,
   },
 
   interests: [
@@ -131,21 +134,62 @@ export const portfolioData = {
     {
       id: "smart-academic-recommendation",
       title: "Smart Academic Recommendation System",
-      category: "Algorithms & Decision Systems",
-      year: "2025",
-      tagline: "DSA-focused system providing personalized academic recommendations using student performance data and algorithmic techniques.",
+      category: "AI & Decision Systems",
+      year: "2026",
+      tagline: "A personalized learning platform providing tailored subject recommendations, career roadmaps, and progress tracking for college students.",
       description:
-        "A comprehensive DSA-focused academic recommendation system developed by Ankit Srivastava. Employs priority queues, graph-based course dependency mappings, and multi-factor decision logic to evaluate student performance data and chart optimized learning pathways.",
-      technologies: ["Data Structures & Algorithms", "Python", "Graph Traversal", "Recommendation Logic"],
+        "A full-featured recommendation platform built by Ankit Srivastava. Deployed live on Vercel and open-source on GitHub, it provides intelligent curriculum pathways, personalized course roadmaps, prerequisite dependency resolution, and real-time student study planners.",
+      technologies: ["TypeScript", "React", "Gemini API", "Tailwind CSS", "Vercel"],
       githubUrl: "https://github.com/ankit8567/Smart-Academic-Recommendation-System",
-      liveUrl: "#project-academic",
+      liveUrl: "https://smart-academic-recommendation-syste-phi.vercel.app",
+      thumbnailUrl: "/thumbnails/smart-academic-recommendation.png",
       featured: true,
       highlights: [
-        "Implemented graph-based prerequisite dependency tracking for curriculum course trees",
-        "Weighted scoring metrics factoring student historical scores, strengths, and pacing",
-        "Minimizes course path collisions while maximizing subject mastery and retention",
+        "Personalized subject recommendations & automated career roadmaps",
+        "Prerequisite dependency mapping and study plan export",
+        "Deployed live on Vercel with responsive mobile-first UI",
       ],
       mockupType: "academic",
+    },
+    {
+      id: "student-portfolio",
+      title: "Student Developer Portfolio Platform",
+      category: "Frontend & Web Architecture",
+      year: "2026",
+      tagline: "High-performance responsive personal portfolio engineered with semantic HTML5, CSS3, modern JavaScript and component modularity.",
+      description:
+        "Architected an editorial, high-performance personal developer portfolio deployed on Vercel and GitHub. Features verified credentials, 9.2 CGPA academic standing, interactive project previews, and clean typography.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "React", "Vercel", "Git"],
+      githubUrl: "https://github.com/ankit8567/Student-Portfolio",
+      liveUrl: "https://github.com/ankit8567/Student-Portfolio",
+      thumbnailUrl: "/thumbnails/student-portfolio.png",
+      featured: true,
+      highlights: [
+        "Architected mobile-first fluid layout with zero layout shifts",
+        "Interactive project modals and resume PDF export",
+        "Integrated LeetCode stats, 8 certifications, and social channels",
+      ],
+      mockupType: "portfolio",
+    },
+    {
+      id: "to-do-list",
+      title: "Modern Interactive To-Do Task Manager",
+      category: "Web Application & Productivity",
+      year: "2026",
+      tagline: "Interactive task scheduling and productivity dashboard with state persistence, category filtering, and responsive mobile-first UI.",
+      description:
+        "Modern web application deployed on Vercel for managing daily tasks, deadlines, and project milestones. Includes responsive task boards, dynamic state management, and real-time progress indicators.",
+      technologies: ["JavaScript", "HTML5", "CSS3", "Vercel", "Git"],
+      githubUrl: "https://github.com/ankit8567/to-do-list",
+      liveUrl: "https://to-do-list-roan-phi.vercel.app",
+      thumbnailUrl: "/thumbnails/to-do-list.png",
+      featured: true,
+      highlights: [
+        "Live web app deployed on Vercel: to-do-list-roan-phi.vercel.app",
+        "Responsive UI with dynamic task status transitions",
+        "Streamlined client-side state handling and intuitive task management",
+      ],
+      mockupType: "todo",
     },
     {
       id: "linux-ansible-engine",
@@ -157,7 +201,7 @@ export const portfolioData = {
         "Automated system configuration, user management, and package deployment across Linux environments by writing reusable, idempotent Ansible playbooks. Implemented robust Python scripts with structured error handling and logging to extend playbook workflows and improve automation reliability.",
       technologies: ["Red Hat Ansible", "Python", "Linux (RHEL)", "Bash Scripting"],
       githubUrl: "https://github.com/ankit8567",
-      liveUrl: "#project-ansible",
+      liveUrl: "https://github.com/ankit8567",
       featured: true,
       highlights: [
         "Wrote reusable, idempotent Ansible playbooks for system configuration and user management",
@@ -165,44 +209,6 @@ export const portfolioData = {
         "Configured secure SSH-based automation pipelines across multiple Linux nodes",
       ],
       mockupType: "ansible",
-    },
-    {
-      id: "personal-portfolio-platform",
-      title: "Personal Developer Portfolio Platform",
-      category: "Frontend & Web Engineering",
-      year: "2026",
-      tagline: "High-performance, editorial portfolio platform architected with responsive, mobile-first design and clean component modularity.",
-      description:
-        "Architected a responsive, mobile-first portfolio site, ensuring consistent rendering across devices through flexible layouts and clean, modular code structure. Optimized page performance and deployed the site via GitHub Pages/Vercel with Git-based version control.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "React", "Git", "GitHub Pages / Vercel"],
-      githubUrl: "https://github.com/ankit8567",
-      liveUrl: "#",
-      featured: true,
-      highlights: [
-        "Architected responsive, mobile-first layout rendering seamlessly across all screen sizes",
-        "Implemented clean typography pairing, interactive modals, and fluid micro-interactions",
-        "Optimized asset loading, accessibility compliance, and Git-based versioning workflows",
-      ],
-      mockupType: "portfolio",
-    },
-    {
-      id: "dsa-implementations-python",
-      title: "Data Structures & Algorithm Implementations",
-      category: "Core Algorithms & Performance",
-      year: "2025",
-      tagline: "Optimized implementations of fundamental algorithms and data structures with documented asymptotic complexity.",
-      description:
-        "Implemented core algorithms and data structures in Python, including sorting (Quick, Merge, Heap), searching (Binary search variants), tree structures (BST, AVL concepts), and graph traversals (BFS, DFS, Dijkstra) with rigorous time and space complexity documentation.",
-      technologies: ["Python", "Algorithms", "Data Structures", "Complexity Analysis"],
-      githubUrl: "https://github.com/ankit8567",
-      liveUrl: "#project-dsa",
-      featured: true,
-      highlights: [
-        "Engineered benchmarked implementations of sorting, tree, and graph traversal algorithms",
-        "Included comprehensive Big-O time and space complexity annotations for every algorithm",
-        "Tested against edge cases including cyclic dependencies, sparse arrays, and skewed trees",
-      ],
-      mockupType: "dsa",
     },
   ] as Project[],
 

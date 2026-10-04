@@ -1,7 +1,7 @@
 import React from 'react';
 import { portfolioData, Project } from '../data/portfolioData';
 import { MockupPreview } from '../components/MockupPreviews';
-import { Github, ArrowUpRight, Sparkles, Layers, ArrowRight } from 'lucide-react';
+import { Github, ArrowUpRight, Sparkles, Layers, ArrowRight, ExternalLink } from 'lucide-react';
 
 interface ProjectsSectionProps {
   onSelectProject: (project: Project) => void;
@@ -65,7 +65,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                       </h3>
                       {project.id === 'smart-academic-recommendation' && (
                         <span className="inline-block mt-2 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono font-bold">
-                          Featured GitHub Repository · ankit8567
+                          Featured GitHub Project · Live on Vercel
                         </span>
                       )}
                     </div>
@@ -99,13 +99,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
 
                     {/* Action Buttons */}
                     <div className="pt-3 flex flex-wrap items-center gap-3">
-                      <button
-                        onClick={() => onSelectProject(project)}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-neutral-900 rounded-full hover:bg-neutral-800 transition-colors shadow-2xs cursor-pointer"
-                      >
-                        <span>VIEW ARCHITECTURE</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
+                      {project.liveUrl && !project.liveUrl.startsWith('#') && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-full transition-colors shadow-2xs"
+                        >
+                          <span>LIVE APP</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      )}
 
                       <a
                         href={project.githubUrl}
@@ -114,27 +118,41 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                         className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold text-neutral-800 bg-white border border-neutral-300 rounded-full hover:bg-neutral-100 hover:border-neutral-400 transition-colors shadow-2xs"
                       >
                         <Github className="w-4 h-4" />
-                        <span>VIEW GITHUB REPO</span>
+                        <span>GITHUB REPO</span>
                         <ArrowUpRight className="w-3 h-3 text-neutral-400" />
                       </a>
+
+                      <button
+                        onClick={() => onSelectProject(project)}
+                        className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold text-neutral-700 bg-[#F7F7F5] border border-neutral-200 rounded-full hover:bg-neutral-100 transition-colors shadow-2xs cursor-pointer"
+                      >
+                        <span>Details</span>
+                        <ArrowRight className="w-3 h-3 text-neutral-400" />
+                      </button>
                     </div>
                   </div>
 
-                  {/* Right Column: Interactive Code-Rendered UI Mockup Preview */}
+                  {/* Right Column: Real GitHub Thumbnail Card */}
                   <div
                     className={`lg:col-span-6 cursor-pointer ${!isEven ? 'lg:order-1' : ''}`}
                     onClick={() => onSelectProject(project)}
                   >
                     <div className="relative group/mockup">
                       <div className="transform transition-transform duration-300 group-hover/mockup:scale-[1.015]">
-                        <MockupPreview type={project.mockupType} title={project.title} />
+                        <MockupPreview
+                          type={project.mockupType}
+                          title={project.title}
+                          thumbnailUrl={project.thumbnailUrl}
+                          githubUrl={project.githubUrl}
+                          liveUrl={project.liveUrl}
+                        />
                       </div>
 
                       {/* Floating circular inspect badge */}
                       <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/95 backdrop-blur-xs border border-neutral-200 shadow-md flex flex-col items-center justify-center text-[10px] font-semibold text-neutral-900 tracking-tight transition-transform duration-200 group-hover/mockup:scale-110">
-                        <span>INSPECT</span>
+                        <span>VIEW</span>
                         <div className="flex items-center">
-                          <span>SYSTEM</span>
+                          <span>PROJECT</span>
                           <ArrowUpRight className="w-2.5 h-2.5 ml-0.5" />
                         </div>
                       </div>

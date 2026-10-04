@@ -51,7 +51,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
 
           {/* Interactive UI Mockup */}
           <div className="w-full">
-            <MockupPreview type={project.mockupType} title={project.title} />
+            <MockupPreview
+              type={project.mockupType}
+              title={project.title}
+              thumbnailUrl={project.thumbnailUrl}
+              githubUrl={project.githubUrl}
+              liveUrl={project.liveUrl}
+            />
           </div>
 
           {/* Detailed Overview */}

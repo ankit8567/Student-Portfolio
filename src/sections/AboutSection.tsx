@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { portfolioData } from '../data/portfolioData';
+import { permanentProfilePhoto } from '../assets/profileImage';
 import { ArrowRight, CheckCircle2, Terminal, Brain, Code, Database, Sparkles, BookOpen, GraduationCap, Award } from 'lucide-react';
 
-interface AboutSectionProps {
-  onOpenPhotoModal: () => void;
-  profilePhoto: string | null;
-}
-
-export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenPhotoModal, profilePhoto }) => {
-  const [aboutImgError, setAboutImgError] = useState(false);
+export const AboutSection: React.FC = () => {
   return (
     <section id="about" className="py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,18 +107,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenPhotoModal, pr
               {/* Student Identity Card */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[#FAF9F5] border border-neutral-200 overflow-hidden flex items-center justify-center font-serif text-lg font-bold text-neutral-800 shrink-0 shadow-2xs">
-                    {!aboutImgError && profilePhoto ? (
-                      <img
-                        src={profilePhoto}
-                        alt="Ankit Srivastava"
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover object-top"
-                        onError={() => setAboutImgError(true)}
-                      />
-                    ) : (
-                      <span>AS</span>
-                    )}
+                  <div className="w-12 h-12 rounded-2xl bg-[#0f172a] border border-neutral-200 overflow-hidden flex items-center justify-center shrink-0 shadow-2xs">
+                    <img
+                      src={permanentProfilePhoto}
+                      alt="Ankit Srivastava"
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <div>
                     <h4 className="font-semibold text-sm text-neutral-900">{portfolioData.personal.name}</h4>

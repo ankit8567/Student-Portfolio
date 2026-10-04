@@ -1,23 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { ArrowDown, FileText, Sparkles, MapPin, Camera, Code2, ArrowUpRight, GraduationCap, Award, RefreshCw } from 'lucide-react';
+import { permanentProfilePhoto } from '../assets/profileImage';
+import { ArrowDown, FileText, Sparkles, MapPin, GraduationCap, Award } from 'lucide-react';
 
 interface HeroSectionProps {
   onResumeClick: () => void;
-  onOpenPhotoModal: () => void;
-  profilePhoto: string | null;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({
-  onResumeClick,
-  onOpenPhotoModal,
-  profilePhoto,
-}) => {
-  const [imageError, setImageError] = useState(false);
-
-  useEffect(() => {
-    setImageError(false);
-  }, [profilePhoto]);
+export const HeroSection: React.FC<HeroSectionProps> = ({ onResumeClick }) => {
   return (
     <section
       id="hero"
@@ -110,7 +100,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Profile Photo Card */}
+            {/* Right Column: Permanent Profile Photo Card */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
               <div className="relative w-full max-w-sm aspect-4/5 sm:aspect-3/4 rounded-3xl sm:rounded-[2.2rem] bg-gradient-to-b from-[#FAF9F5] to-[#F0EFEB] border border-neutral-200/90 p-4 sm:p-5 flex flex-col items-center justify-center shadow-[0_12px_36px_rgba(0,0,0,0.04)] group transition-all duration-300 hover:shadow-lg">
                 
@@ -120,80 +110,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <span className="text-xs">👋</span>
                 </div>
 
-                {/* Inner Canvas for Profile Picture or Aesthetic Placeholder */}
-                <div className="w-full h-full rounded-2xl sm:rounded-[1.7rem] bg-[#0f172a] border border-neutral-200/80 overflow-hidden flex flex-col items-center justify-center relative text-center group/photo">
-                  
-                  {!imageError && profilePhoto ? (
-                    <div className="relative w-full h-full min-h-[320px] sm:min-h-[380px] flex items-center justify-center bg-[#0f172a] overflow-hidden">
-                      <img
-                        src={profilePhoto}
-                        alt="Ankit Srivastava - Professional Profile"
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/photo:scale-105"
-                        onError={() => setImageError(true)}
-                      />
-                      {/* Subtle gradient scrim at bottom for text readability */}
-                      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
+                {/* Permanent Photo Canvas */}
+                <div className="w-full h-full rounded-2xl sm:rounded-[1.7rem] bg-[#0f172a] border border-neutral-200/80 overflow-hidden flex flex-col items-center justify-center relative text-center">
+                  <div className="relative w-full h-full min-h-[320px] sm:min-h-[380px] flex items-center justify-center bg-[#0f172a] overflow-hidden">
+                    <img
+                      src={permanentProfilePhoto}
+                      alt="Ankit Srivastava - Professional Profile"
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Subtle gradient scrim at bottom for text readability */}
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
 
-                      {/* Bottom caption overlay */}
-                      <div className="absolute bottom-3 inset-x-3 flex items-center justify-between text-white text-[11px] font-mono px-2">
-                        <span className="font-semibold drop-shadow-sm">NIET Greater Noida</span>
-                        <span className="bg-emerald-500 text-white font-bold px-2 py-0.5 rounded-full text-[10px] shadow-xs">
-                          CGPA: {portfolioData.personal.cgpa}
-                        </span>
-                      </div>
-
-                      {/* Quick change photo action button on hover / tap */}
-                      <button
-                        onClick={onOpenPhotoModal}
-                        title="Upload your own photo or replace"
-                        className="absolute top-3 left-3 px-3 py-1.5 text-xs font-semibold bg-black/75 hover:bg-black text-white backdrop-blur-md rounded-full border border-white/20 transition-all opacity-90 hover:opacity-100 flex items-center gap-1.5 cursor-pointer shadow-md"
-                      >
-                        <Camera className="w-3.5 h-3.5" />
-                        <span>Update Photo</span>
-                      </button>
+                    {/* Bottom caption overlay */}
+                    <div className="absolute bottom-3 inset-x-3 flex items-center justify-between text-white text-[11px] font-mono px-2">
+                      <span className="font-semibold drop-shadow-sm">NIET Greater Noida</span>
+                      <span className="bg-emerald-500 text-white font-bold px-2 py-0.5 rounded-full text-[10px] shadow-xs">
+                        CGPA: {portfolioData.personal.cgpa}
+                      </span>
                     </div>
-                  ) : (
-                    <div className="p-6 sm:p-8 flex flex-col items-center justify-center space-y-4 bg-white w-full h-full min-h-[320px] sm:min-h-[380px]">
-                      {/* Monogram medallion */}
-                      <div className="relative">
-                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#FAF9F5] border-2 border-dashed border-neutral-300 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
-                          <span className="font-serif text-3xl sm:text-4xl text-neutral-800 tracking-tight">
-                            AS
-                          </span>
-                        </div>
-                        <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-neutral-900 text-white flex items-center justify-center text-xs shadow-md">
-                          <Code2 className="w-3.5 h-3.5" />
-                        </div>
-                      </div>
-
-                      {/* Clean placeholder label */}
-                      <div className="space-y-1">
-                        <div className="inline-block px-3 py-1 bg-[#F7F7F5] border border-neutral-200 rounded-full text-xs font-semibold text-neutral-800 tracking-wide uppercase">
-                          Ankit Srivastava
-                        </div>
-                        <p className="text-[11px] text-neutral-500 max-w-[210px] leading-relaxed">
-                          NIET CSE Student · 1st Year CGPA: 9.2
-                        </p>
-                      </div>
-
-                      {/* Customize / Upload button */}
-                      <button
-                        onClick={onOpenPhotoModal}
-                        className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-neutral-900 rounded-xl hover:bg-neutral-800 transition-colors shadow-sm cursor-pointer"
-                      >
-                        <Camera className="w-3.5 h-3.5" />
-                        <span>Upload Profile Photo</span>
-                      </button>
-
-                      {/* Bottom caption */}
-                      <div className="text-center pt-1">
-                        <span className="text-[10px] text-neutral-500 font-mono tracking-wider uppercase font-semibold">
-                          Click above to upload IMG_20261003_231421.jpg
-                        </span>
-                      </div>
-                    </div>
-                  )}
+                  </div>
                 </div>
 
                 {/* Corner detail star */}
