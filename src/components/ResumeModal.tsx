@@ -15,7 +15,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   const handleCopySummary = () => {
     const text = `
 ANKIT SRIVASTAVA
-Greater Noida, Uttar Pradesh, India | +91 9336366701 | ankitsri2911@gmail.com
+Greater Noida, Uttar Pradesh, India | ankitsri2911@gmail.com
 LinkedIn: ${portfolioData.socialLinks.linkedin}
 GitHub: ${portfolioData.socialLinks.github}
 LeetCode: ${portfolioData.socialLinks.leetcode}
@@ -124,7 +124,7 @@ CERTIFICATIONS & LICENSES:
               Ankit Srivastava
             </h1>
             <p className="text-neutral-600 text-xs sm:text-[13px]">
-              Greater Noida, Uttar Pradesh, India &nbsp;|&nbsp; +91 9336366701 &nbsp;|&nbsp;{' '}
+              Greater Noida, Uttar Pradesh, India &nbsp;|&nbsp;{' '}
               <a href="mailto:ankitsri2911@gmail.com" className="hover:underline">
                 ankitsri2911@gmail.com
               </a>

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { Mail, Linkedin, Code2, MapPin, Send, Copy, Check, ArrowUpRight, Instagram, Phone } from 'lucide-react';
+import { Mail, Linkedin, Code2, MapPin, Send, Copy, Check, ArrowUpRight, Instagram } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [sentNotice, setSentNotice] = useState(false);
 
@@ -12,12 +11,6 @@ export const ContactSection: React.FC = () => {
     navigator.clipboard.writeText(portfolioData.personal.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleCopyPhone = () => {
-    navigator.clipboard.writeText(portfolioData.personal.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -114,18 +107,6 @@ export const ContactSection: React.FC = () => {
                 >
                   <span>{portfolioData.personal.email}</span>
                   {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-neutral-400" />}
-                </button>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="text-neutral-400 uppercase">Phone:</span>
-                <button
-                  onClick={handleCopyPhone}
-                  className="font-medium text-neutral-900 underline underline-offset-4 hover:text-neutral-600 flex items-center gap-1 cursor-pointer"
-                >
-                  <Phone className="w-3.5 h-3.5 text-neutral-500" />
-                  <span>{portfolioData.personal.phone}</span>
-                  {copiedPhone ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-neutral-400" />}
                 </button>
               </div>
 

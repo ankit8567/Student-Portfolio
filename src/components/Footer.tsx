@@ -64,10 +64,7 @@ export const Footer: React.FC = () => {
                 <p className="text-neutral-300 mb-1 truncate font-medium">
                   {portfolioData.personal.email}
                 </p>
-                <p className="text-neutral-400 mb-1">
-                  {portfolioData.personal.phone}
-                </p>
-                <p className="text-neutral-500">
+                <p className="text-neutral-400">
                   {portfolioData.personal.location}
                 </p>
               </div>

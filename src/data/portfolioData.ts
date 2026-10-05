@@ -61,7 +61,6 @@ export const portfolioData = {
     role: "Computer Science and Engineering Undergraduate & Aspiring Software Developer",
     college: "Noida Institute of Engineering and Technology (NIET)",
     location: "Greater Noida, Uttar Pradesh, India",
-    phone: "+91 9336366701",
     email: "ankitsri2911@gmail.com",
     cgpa: "9.2",
     cgpaNote: "1st Year CGPA: 9.2 / 10",
